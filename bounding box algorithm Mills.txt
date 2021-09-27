@@ -1,0 +1,31 @@
+#Teeth HW algorithm	// = comments, - = algorithm	see JainChen paper for prob. formulas
+
+-load image
+-apply matlab contrast filter
+-------------------------
+[Bounding Box]
+-calculate integral intensities (II = sum of all intensities in row)
+	-create sliding window (#cols x w)
+	-for loop: sum up all the intensities for a given window row
+		-integrated intensity array: II = (row, sum of all intensities in row)
+	//every window will give plot (use matlab central file exchange for local min/max)
+	-find local minima for each plot
+
+	-set midline (y-hat = #cols/2) or (manually w/ ginput)
+	//start calculating probailities
+	-calcuate p(yi) for each local minima
+	-calculate p(Di) for each local min:
+		//intensities are "D's (depths)" //data should be normalized [0,1]
+	//find optimal minima for the window using the equations
+		//then shift window and repeat for each window
+
+[repeat Bounding box using (opposite window orientation)
+	//y-hat for opp direction -> manually set for each gap/larger "sub windows"/
+	//loosen guassian equataion -> make sigma bigger
+	GOAL: get II + apply equations
+[get gap lines from pts]
+	-define second degree polynomial for pts (polyfit)
+	-creates bounding boxes for gaps
+##### END??? #####
+
+[seperate crown from root]
